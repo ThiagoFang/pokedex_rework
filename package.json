@@ -11,7 +11,8 @@
   "dependencies": {
     "next": "14.0.4",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "tailwind-variants": "^0.1.19"
   },
   "devDependencies": {
     "@biomejs/biome": "1.4.1",
