@@ -1,7 +1,7 @@
 export default function UsersHead() {
-  return (
-    <>
-      <title>Pokemons - Charizard</title>
-    </>
-  )
+	return (
+		<>
+			<title>Pokemons - Charizard</title>
+		</>
+	);
 }
