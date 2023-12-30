@@ -1,4 +1,5 @@
 import Card from "@/components/Card";
+import Title from "@/components/Title";
 
 export default function Home() {
 	return (
@@ -6,7 +7,7 @@ export default function Home() {
 			<div>Teste</div>
 
 			<Card>
-				Novo Card
+				<Title>Título do Card</Title>
 			</Card>
 		</main>
 	);
