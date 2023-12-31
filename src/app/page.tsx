@@ -1,4 +1,7 @@
 import Card from "@/components/Card";
+import Subtitle from "@/components/Subtitle";
+import Title from "@/components/Title";
+import Text from "@/components/Text";
 
 export default function Home() {
 	return (
@@ -6,7 +9,9 @@ export default function Home() {
 			<div>Teste</div>
 
 			<Card>
-				Novo Card
+				<Title>Título do Card</Title>
+				<Subtitle>Subtitulo muito bonito</Subtitle>
+				<Text>Texto que vai dentro da box muito grande e bonito</Text>
 			</Card>
 		</main>
 	);
