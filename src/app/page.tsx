@@ -7,7 +7,7 @@ import Metric from "@/components/Metric";
 export default function Home() {
 	return (
 		<main>
-			<div>Teste</div>
+			<div>Hello World</div>
 
 			<Card>
 				<Metric>Teste</Metric>
