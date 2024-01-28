@@ -4,6 +4,8 @@ import { PokeballButton } from "@/components/PokeballButton";
 
 import Image from "next/image";
 import Link from "next/link";
+import PokemonSearchInput from "./components/PokemonSearchInput";
+import ProgressBar from "@/components/ProgressBar";
 
 export default function Home() {
 	return (
@@ -23,45 +25,15 @@ export default function Home() {
 								clouds and cannot be seen from the ground.
 							</Text>
 
-							{/* ATTACK BAR */}
-							<div>
-								<Text className="mb-1">Attack</Text>
-								<div className="bg-secondary/10 h-4 rounded-full overflow-hidden">
-									<div className="bg-secondary h-4 w-1/2 rounded-full" />
-								</div>
-							</div>
+							<ProgressBar percentage={85} label="Attack" />
 
-							{/* HP BAR */}
-							<div>
-								<Text className="mb-1">HP</Text>
-								<div className="bg-secondary/10 h-4 rounded-full overflow-hidden">
-									<div className="bg-secondary h-4 w-1/2 rounded-full" />
-								</div>
-							</div>
+							<ProgressBar percentage={55} label="HP" />
 
-							{/* DEFENSE BAR */}
-							<div>
-								<Text className="mb-1">Defense</Text>
-								<div className="bg-secondary/10 h-4 rounded-full overflow-hidden">
-									<div className="bg-secondary h-4 w-1/2 rounded-full" />
-								</div>
-							</div>
+							<ProgressBar percentage={65} label="Defense" />
 
-							{/* SP DEFENSE BAR */}
-							<div>
-								<Text className="mb-1">SP Defense</Text>
-								<div className="bg-secondary/10 h-4 rounded-full overflow-hidden">
-									<div className="bg-secondary h-4 w-1/2 rounded-full" />
-								</div>
-							</div>
+							<ProgressBar percentage={45} label="SP Defense" />
 
-							{/* SP ATTACK BAR */}
-							<div>
-								<Text className="mb-1">SP Attack</Text>
-								<div className="bg-secondary/10 h-4 rounded-full overflow-hidden">
-									<div className="bg-secondary h-4 w-1/2 rounded-full" />
-								</div>
-							</div>
+							<ProgressBar percentage={80} label="SP Attack" />
 
 							<Link href="/" className="text-sm max-w hover:underline text-gray-500 dark:text-gray-300 hover:text-secondary font-medium">See More</Link>
 						</Card>
@@ -69,10 +41,7 @@ export default function Home() {
 				</div>
 			</div>
 
-			<label className={cardStyles({ className: "items-center flex max-w-lg mt-16 mx-auto gap-4 py-3" })}>
-				<input className="bg-transparent p-2 text-gray-700 dark:text-gray-300 flex-1 appearance-none focus:outline-none" placeholder="Search for a pokemon..." />
-				<PokeballButton />
-			</label>
+			<PokemonSearchInput />
 		</main>
 	);
 }
