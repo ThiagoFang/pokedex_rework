@@ -9,8 +9,6 @@ export type CardProps = ComponentProps<"div"> & VariantProps<typeof cardStyles> 
 	children: ReactNode;
 }
 
-const Card = ({ children, className, ...rest }: CardProps) => {
+export default function Card({ children, className, ...rest }: CardProps) {
 	return <div className={cardStyles({ className })} {...rest}>{children}</div>;
 };
-
-export default Card;

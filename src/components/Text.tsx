@@ -5,14 +5,12 @@ const textStyles = tv({
   base: "text-slate-500 tracking-wide text-sm dark:text-slate-300",
 })
 
-type textProps = ComponentProps<"h1"> & VariantProps<typeof textStyles> & {
+type TextProps = ComponentProps<"h1"> & VariantProps<typeof textStyles> & {
   children: ReactNode;
 }
 
-const Text = ({ children, className, ...rest }: textProps) => {
+export default function Text({ children, className, ...rest }: TextProps) {
   return (
     <p className={textStyles({ className })} {...rest}>{children}</p>
   )
 }
-
-export default Text

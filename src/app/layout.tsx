@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Header from "@/components/ui/Header";
+
 import "./globals.css";
-import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,22 +19,7 @@ export default function RootLayout({
 	return (
 		<html lang="en" className="bg-slate-100 dark:bg-dark-background">
 			<body className={inter.className}>
-				<header className="p-4 flex items-center gap-4">
-					<h1 className="p-2">Pokédex</h1>
-					<nav>
-						<ul>
-							<li>
-								<Link href="/">Início</Link>
-							</li>
-							<li>
-								<Link href="/pokemon">Pokemon</Link>
-							</li>
-							<li>
-								<Link href="/">Outros</Link>
-							</li>
-						</ul>
-					</nav>
-				</header>
+				<Header />
 				<div className="p-4">{children}</div>
 			</body>
 		</html>

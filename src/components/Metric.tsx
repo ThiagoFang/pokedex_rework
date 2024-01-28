@@ -9,10 +9,8 @@ type MetricProps = ComponentProps<"h1"> & VariantProps<typeof metricStyles> & {
   children: ReactNode;
 }
 
-const Metric = ({ children, className, ...rest }: MetricProps) => {
+export default function Metric({ children, className, ...rest }: MetricProps) {
   return (
     <h1 className={metricStyles({ className })} {...rest}>{children}</h1>
   )
 }
-
-export default Metric

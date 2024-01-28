@@ -9,10 +9,8 @@ type TitleProps = ComponentProps<"h1"> & VariantProps<typeof titleStyles> & {
   children: ReactNode;
 }
 
-const Title = ({ children, className, ...rest }: TitleProps) => {
+export default function Title({ children, className, ...rest }: TitleProps) {
   return (
     <h1 className={titleStyles({ className })} {...rest}>{children}</h1>
   )
 }
-
-export default Title
