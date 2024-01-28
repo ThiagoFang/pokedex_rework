@@ -1,7 +1,7 @@
 import { Card, Metric, Text } from "@/components";
 import { cardStyles } from "@/components/Card";
 import { PokeballButton } from "@/components/PokeballButton";
-import { Pokeball } from "@/components/svg/Pokeball";
+
 import Image from "next/image";
 import Link from "next/link";
 
