@@ -11,7 +11,7 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <nav className={cardStyles({ className: "w-max m-auto mt-4 select-none" })}>
+    <nav className={cardStyles({ className: "w-max m-auto select-none translate-y-4" })}>
       <ul className="flex items-center">
         <li>
           <Link href="/" className="flex items-center gap-1 py-2 px-4">
