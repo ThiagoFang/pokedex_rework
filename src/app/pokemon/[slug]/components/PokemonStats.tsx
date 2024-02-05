@@ -7,9 +7,10 @@ interface Props {
 
 export const PokemonStats = ({ stats }: Props) => {
   return (
-    <div>
+    <div className="mt-2 grid gap-3">
       {stats.map((item, index) => (
         <ProgressBar
+          key={index}
           label={item.stat.name}
           percentage={item.base_stat}
         />
