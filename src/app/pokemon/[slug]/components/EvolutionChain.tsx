@@ -14,7 +14,7 @@ export async function EvolutionChain({ url }: Props) {
 
   if (!evolutions.chain.evolves_to.length) {
     return (
-      <Card className="mx-auto max-w-7xl mt-8">
+      <Card className="mx-auto max-w-7xl mt-8 animate-fade-up animate-once animate-duration-1000 animate-ease-in-out animate-delay-150">
         This pokemon does no have evolutions to show
       </Card>
     )
@@ -22,14 +22,14 @@ export async function EvolutionChain({ url }: Props) {
 
   if (evolutions.chain.evolves_to.length === 1)
     return (
-      <Card className="mx-auto max-w-7xl mt-8">
+      <Card className="mx-auto max-w-7xl mt-8 animate-fade-up animate-once animate-duration-1000 animate-ease-in-out animate-delay-150">
         <div>simple evolution</div>
       </Card>
     )
 
   if (evolutions.chain.evolves_to.length > 1) {
     return (
-      <Card className="mx-auto max-w-7xl mt-8">
+      <Card className="mx-auto max-w-7xl mt-8 animate-fade-up animate-once animate-duration-1000 animate-ease-in-out animate-delay-150">
         <div>complex evolution</div>
       </Card>
     )
