@@ -3,6 +3,7 @@ import { getPokemon } from "@/utils/fetch/getPokemon";
 import { PokemonStats } from "./components/PokemonStats";
 import { getSpecies } from "@/utils/fetch/getSpecies";
 import { colorsByType } from "@/utils/data/ColorsByType";
+import { EvolutionChain } from "./components/EvolutionChain";
 
 import Image from "next/image";
 
@@ -21,8 +22,8 @@ export default async function PokemonsPage({ params }: Props) {
 		return (
 			<main className="py-16 mt-16">
 				<div className="flex gap-4 mx-auto flex-1 w-max max-w-7xl">
-					<Image alt="" src={pokemon.sprites.other.dream_world.front_default} width={450} height={450} />
-					<Card className="max-w-sm">
+					<Image alt="" src={pokemon.sprites.other.dream_world.front_default} width={450} height={450} className="animate-fade-up animate-once animate-duration-1000 animate-ease-in-out" />
+					<Card className="max-w-sm animate-fade-up animate-once animate-duration-1000 animate-ease-in-out animate-delay-150">
 						<Text className="font-semibold">
 							#{pokemon.id}
 						</Text>
@@ -35,6 +36,8 @@ export default async function PokemonsPage({ params }: Props) {
 						<PokemonStats stats={pokemon.stats} />
 					</Card>
 				</div>
+
+				<EvolutionChain url={species.evolution_chain.url} />
 			</main>
 		)
 }
