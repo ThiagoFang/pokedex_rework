@@ -23,29 +23,20 @@ export async function EvolutionChain({ url }: Props) {
     )
   }
 
-  if (evolutions.chain.evolves_to.length === 1)
-    return (
-      <div className='mt-8 grid gap-6 max-w-7xl mx-auto'>
-        <Title>Evoluções do Pokemon</Title>
-        <div className='grid grid-cols-2 gap-8'>
-          {getSimpleChain(evolutions.chain).map((evolution, index) => (
-            <EvolutionBox name={evolution.name} key={index} />
-          ))}
-        </div>
+  return (
+    <div className='mt-8 grid gap-6 max-w-7xl mx-auto'>
+      <Title>Evoluções do Pokemon</Title>
+      <div className='grid grid-cols-2 gap-8'>
+        {flatChain(evolutions.chain).map((evolution, index) => (
+          <EvolutionBox name={evolution.name} key={index} />
+        ))}
       </div>
-    )
-
-  if (evolutions.chain.evolves_to.length > 1) {
-    return (
-      <Card className="mx-auto max-w-7xl mt-8 animate-fade-up animate-once animate-duration-1000 animate-ease-in-out animate-delay-150">
-        <div>complex evolution</div>
-      </Card>
-    )
-  }
+    </div>
+  )
 }
 
-const getSimpleChain = (chain: EvolutionChain["chain"]) => {
-  return chain.evolves_to.flatMap(evo => {
+const flatChain = (chain: EvolutionChain["chain"]) => {
+  const arr = chain.evolves_to.flatMap(evo => {
     const evolutions = [{ name: evo.species.name, baby: evo.is_baby }];
 
     if (evo.evolves_to.length) {
@@ -59,4 +50,6 @@ const getSimpleChain = (chain: EvolutionChain["chain"]) => {
 
     return evolutions;
   });
+
+  return [{ name: chain.species.name, baby: chain.is_baby }, ...arr]
 };

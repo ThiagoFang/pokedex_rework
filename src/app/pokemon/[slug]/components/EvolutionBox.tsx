@@ -4,6 +4,8 @@ import { ChevronRight } from "lucide-react";
 
 import Link from "next/link";
 import Image from "next/image";
+import { getImage } from "@/utils/getImage";
+import { colorsByType } from "@/utils/data/ColorsByType";
 
 interface Props {
   name: string;
@@ -14,8 +16,8 @@ export async function EvolutionBox({ name }: Props) {
 
   if (pokemon)
     return (
-      <Card className="relative overflow-hidden p-12 border-l-4 pl-48">
-        <Image alt="" src={pokemon.sprites.other.dream_world.front_default} width={150} height={200} className="absolute left-4 top-4 animate-fade-up animate-once animate-duration-1000 animate-ease-in-out" />
+      <Card className="relative overflow-hidden p-12 pl-48" style={{ borderLeft: `4px solid ${colorsByType[pokemon.types[0].type.name]}` }}>
+        <Image alt="" src={getImage(pokemon)} width={150} height={200} className="absolute left-4 top-4 animate-fade-up animate-once animate-duration-1000 animate-ease-in-out" />
         <Title className="capitalize min-w-48">
           {pokemon.name} <span className="opacity-60">#{pokemon.id}</span>
         </Title>
