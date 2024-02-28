@@ -1,6 +1,4 @@
 import { Card, Metric, Text } from "@/components";
-import { cardStyles } from "@/components/Card";
-import { PokeballButton } from "@/components/PokeballButton";
 
 import Image from "next/image";
 import Link from "next/link";

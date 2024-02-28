@@ -7,6 +7,7 @@ import { EvolutionChain } from "./components/EvolutionChain";
 import Image from "next/image";
 import { getImage } from "@/utils/getImage";
 import { TypeChips } from "@/components/TypeChips";
+import { CancelLoading } from "@/components/ui/CancelLoading";
 
 interface Props {
 	params: {
@@ -21,6 +22,8 @@ export default async function PokemonsPage({ params }: Props) {
 	if (pokemon && species)
 		return (
 			<main className="py-16 mt-16">
+				<CancelLoading />
+
 				<div className="flex gap-4 mx-auto flex-1 w-max max-w-7xl">
 					<Image alt="" src={getImage(pokemon)} width={450} height={450} className="animate-fade-up animate-once animate-duration-1000 animate-ease-in-out" />
 					<Card className="max-w-sm animate-fade-up animate-once animate-duration-1000 animate-ease-in-out animate-delay-150">

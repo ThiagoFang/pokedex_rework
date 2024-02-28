@@ -2,6 +2,7 @@
 
 import { cardStyles } from "@/components/Card";
 import { PokeballButton } from "@/components/PokeballButton";
+import { useConfigsStore } from "@/store/configs";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -9,9 +10,12 @@ export default function PokemonSearchInput() {
   const [value, setValue] = useState("");
   const router = useRouter();
 
+  const { setIsLoading } = useConfigsStore();
+
   const handleNavigate = () => {
     if (!value.length) return
 
+    setIsLoading(true);
     router.push(`/pokemon/${value.trim()}`)
   }
 

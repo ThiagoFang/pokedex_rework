@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { getImage } from "@/utils/getImage";
 import { colorsByType } from "@/utils/data/ColorsByType";
+import { TypeChips } from "@/components/TypeChips";
 
 interface Props {
   name: string;
@@ -21,8 +22,13 @@ export async function EvolutionBox({ name }: Props) {
         <Title className="capitalize min-w-48">
           {pokemon.name} <span className="opacity-60">#{pokemon.id}</span>
         </Title>
+        <div className="mb-2.5">
+          <TypeChips pokemon={pokemon} />
+        </div>
+
+
         <Link href={`/pokemon/${name}`} draggable={false} className="select-none active:opacity-70">
-          <Text className="flex items-center leading-3">Ver Detalhes <ChevronRight size={14} className="mt-0.5" /></Text>
+          <Text className="flex items-center leading-3">See Details <ChevronRight size={14} className="mt-0.5" /></Text>
         </Link>
       </Card>
     )
