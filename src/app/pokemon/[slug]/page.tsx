@@ -3,11 +3,11 @@ import { getPokemon } from "@/utils/fetch/getPokemon";
 import { PokemonStats } from "./components/PokemonStats";
 import { getSpecies } from "@/utils/fetch/getSpecies";
 import { EvolutionChain } from "./components/EvolutionChain";
-
-import Image from "next/image";
 import { getImage } from "@/utils/getImage";
 import { TypeChips } from "@/components/TypeChips";
 import { CancelLoading } from "@/components/ui/CancelLoading";
+
+import Image from "next/image";
 
 interface Props {
 	params: {

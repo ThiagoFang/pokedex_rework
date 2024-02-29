@@ -11,7 +11,6 @@
   "dependencies": {
     "@headlessui/react": "^1.7.17",
     "axios": "^1.6.7",
-    "framer-motion": "^10.16.16",
     "lucide-react": "^0.307.0",
     "next": "latest",
     "react": "^18",

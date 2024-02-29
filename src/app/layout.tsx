@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import Header from "@/components/ui/Header";
-
-import "./globals.css";
 import { ScreenLoading } from "@/components/ui/ScreenLoading";
+
+import Header from "@/components/ui/Header";
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +21,7 @@ export default function RootLayout({
 		<html lang="en" className="bg-slate-100 p-0 m-0 dark:bg-dark-background">
 			<body className={`${inter.className} min-h-dvh`}>
 				<ScreenLoading />
+
 
 				<Header />
 				<div className="p-4 h-full">{children}</div>
