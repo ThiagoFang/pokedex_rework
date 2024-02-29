@@ -7,6 +7,18 @@ export const getPokemon = async (pokemon: string) => {
 
     return response.data as Pokemon;
   } catch (error) {
-    console.log(error);
+    throw new Error("Error fetching pokemon");
+  }
+};
+
+export const getRandomPokemon = async () => {
+  const randomNumber = Math.floor(Math.random() * 350) + 1;
+
+  try {
+    const response = await AxiosRequest.get(`pokemon/${randomNumber}`);
+
+    return response.data as Pokemon;
+  } catch (error) {
+    throw new Error("Error fetching random pokemon");
   }
 };
