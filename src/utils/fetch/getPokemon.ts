@@ -7,7 +7,7 @@ export const getPokemon = async (pokemon: string) => {
 
     return response.data as Pokemon;
   } catch (error) {
-    throw new Error("Error fetching pokemon");
+    console.log(error);
   }
 };
 
@@ -19,7 +19,7 @@ export const getRandomPokemon = async () => {
 
     return response.data as Pokemon;
   } catch (error) {
-    throw new Error("Error fetching random pokemon");
+    console.log(error);
   }
 };
 
@@ -37,6 +37,6 @@ export const getPokemonList = async (page: number, limit?: number) => {
       url: string;
     }[];
   } catch (error) {
-    throw new Error("Error fetching pokemon list");
+    console.log(error);
   }
 };

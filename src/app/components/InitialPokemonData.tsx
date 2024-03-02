@@ -11,7 +11,7 @@ import Image from "next/image"
 
 export default async function InitialPokemonData() {
   const pokemon = await getRandomPokemon();
-  const species = await getSpecies(pokemon?.name);
+  const species = await getSpecies(pokemon?.name ?? "");
 
   if (pokemon && species)
     return (

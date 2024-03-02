@@ -1,27 +1,27 @@
-"use client"
-
-import { cardStyles } from "@/components/Card";
-import { useConfigsStore } from "@/store/configs";
 import { getPokemon } from "@/utils/fetch/getPokemon";
 import { getImage } from "@/utils/getImage";
-
-import Image from "next/image";
-import Link from "next/link";
+import { PokemonCardLink } from "./PokemonCardLink";
+import { Text, Title } from "@/components";
+import { TypeChips } from "@/components/TypeChips";
 
 interface Props {
   name: string;
 }
 
 export const PokemonCard = async ({ name }: Props) => {
-  const { setIsLoading } = useConfigsStore();
-
   const pokemon = await getPokemon(name);
 
   if (pokemon)
     return (
-      <Link href={`/pokemon/${name}`} onClick={() => setIsLoading(true)} draggable={false} className={cardStyles({ className: "flex flex-col select-none items-center pt-24 justify-center relative" })}>
-        <Image className="absolute -top-6" draggable={false} width={100} height={100} alt="" src={getImage(pokemon)} />
-        {pokemon.name}
-      </Link>
+      <PokemonCardLink name={pokemon.name}>
+        <img className="h-24 -top-8 absolute pointer-events-none animate-fade-up animate-once animate-duration-500 animate-delay-300 animate-ease-in-out" draggable={false} alt="" src={getImage(pokemon)} />
+        <Text className="font-bold">
+          #{pokemon.id}
+        </Text>
+        <Title className="capitalize mt-1 mb-3 font-bold tracking-wide">
+          {pokemon.name}
+        </Title>
+        <TypeChips pokemon={pokemon} />
+      </PokemonCardLink>
     )
 }
