@@ -6,6 +6,7 @@ import { PokemonGrid } from './components/PokemonGrid';
 import { Suspense } from 'react';
 
 import PokemonSearchInput from './components/PokemonSearchInput';
+import { PokemonListLoading } from './components/PokemonListLoading';
 
 function PokemonsPage() {
 
@@ -16,7 +17,7 @@ function PokemonsPage() {
     <div className='max-w-7xl space-y-16 mt-8 mx-auto'>
       <PokemonSearchInput />
 
-      <Suspense key={page} fallback={<div>Loading...</div>}>
+      <Suspense key={page} fallback={<PokemonListLoading />}>
         <PokemonGrid page={page} />
       </Suspense>
 

@@ -24,8 +24,8 @@ export default async function PokemonsPage({ params }: Props) {
 			<main className="py-16 mt-16">
 				<CancelLoading />
 
-				<div className="flex gap-4 mx-auto flex-1 w-max max-w-7xl">
-					<Image alt="" src={getImage(pokemon)} width={450} height={450} className="animate-fade-up animate-once animate-duration-1000 animate-ease-in-out" />
+				<div className="flex mx-auto flex-1 w-max max-w-7xl">
+					<img className="animate-fade-up h-80 animate-once my-auto animate-duration-1000 animate-ease-in-out relative z-10 -right-4" alt="pokemon picture" src={getImage(pokemon)} />
 					<Card className="max-w-sm overflow-hidden animate-fade-up animate-once animate-duration-1000 animate-ease-in-out animate-delay-150">
 						<Text className="font-semibold animate-fade-left animate-once animate-duration-700 animate-delay-500 animate-ease-in-out">
 							#{pokemon.id}

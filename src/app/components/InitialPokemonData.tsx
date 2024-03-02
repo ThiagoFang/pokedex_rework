@@ -6,7 +6,6 @@ import { getSpecies } from "@/utils/fetch/getSpecies"
 import { SearchLink } from "./SearchLink"
 
 import ProgressBar from "@/components/ProgressBar"
-import Image from "next/image"
 
 
 export default async function InitialPokemonData() {
@@ -15,8 +14,8 @@ export default async function InitialPokemonData() {
 
   if (pokemon && species)
     return (
-      <div className="flex mx-auto w-max" >
-        <Image className="animate-fade-up animate-once animate-duration-1000 animate-ease-in-out relative z-10 -right-2" alt="pokemon picture" src={getImage(pokemon)} width={400} height={350} />
+      <div className="flex align-items-center justify-center mx-auto w-max" >
+        <img className="animate-fade-up h-80 animate-once my-auto animate-duration-1000 animate-ease-in-out relative z-10 -right-2" alt="pokemon picture" src={getImage(pokemon)} />
         <div className="space-y-8 max-w-xs">
           <Card className="flex gap-2 items-center animate-fade-up animate-once animate-duration-1000 animate-ease-in-out animate-delay-100">
             <Metric className="capitalize">{pokemon.name}</Metric>
