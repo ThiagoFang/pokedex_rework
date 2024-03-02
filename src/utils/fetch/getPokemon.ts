@@ -23,14 +23,14 @@ export const getRandomPokemon = async () => {
   }
 };
 
-export const getPokemonList = async (page: number, limit?: number) => {
+export const getPokemonList = async (page: number) => {
   const params = {
-    limit: limit ?? 20,
-    offset: (page - 1) * (limit ?? 20),
+    limit: 20,
+    offset: (page - 1) * 20,
   };
 
   try {
-    const response = await AxiosRequest.get(`pokemon`, {});
+    const response = await AxiosRequest.get(`pokemon`, { params });
 
     return response.data.results as {
       name: string;

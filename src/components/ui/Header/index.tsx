@@ -21,7 +21,10 @@ export default function Header() {
         </li>
 
         <li>
-          <Link href="/pokemon" className="flex items-center gap-1 py-2 px-4">
+          <Link href={{
+            pathname: "/pokemon",
+            query: { page: 1 }
+          }} className="flex items-center gap-1 py-2 px-4">
             <Lucide.PawPrint size={18} className="stroke-gray-700 dark:stroke-white" />
             <Title>Pokedex</Title>
           </Link>
