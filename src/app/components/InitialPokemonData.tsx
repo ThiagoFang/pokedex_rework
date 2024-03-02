@@ -14,8 +14,8 @@ export default async function InitialPokemonData() {
 
   if (pokemon && species)
     return (
-      <div className="flex align-items-center justify-center mx-auto w-max" >
-        <img className="animate-fade-up h-80 animate-once my-auto animate-duration-1000 animate-ease-in-out relative z-10 -right-2" alt="pokemon picture" src={getImage(pokemon)} />
+      <div className="flex flex-col sm:flex-row max-sm:gap-8 align-items-center justify-center mx-auto w-max" >
+        <img className="animate-fade-up w-40 max-sm:mx-auto sm:h-80 animate-once my-auto animate-duration-1000 animate-ease-in-out relative z-10 sm:-right-2" alt="pokemon picture" src={getImage(pokemon)} />
         <div className="space-y-8 max-w-xs">
           <Card className="flex gap-2 items-center animate-fade-up animate-once animate-duration-1000 animate-ease-in-out animate-delay-100">
             <Metric className="capitalize">{pokemon.name}</Metric>
@@ -26,13 +26,15 @@ export default async function InitialPokemonData() {
               {species.flavor_text_entries[1].flavor_text}
             </Text>
 
-            {pokemon.stats.map((item, index) => (
-              <ProgressBar
-                key={index}
-                label={item.stat.name}
-                percentage={item.base_stat}
-              />
-            ))}
+            <div className="max-md:hidden">
+              {pokemon.stats.map((item, index) => (
+                <ProgressBar
+                  key={index}
+                  label={item.stat.name}
+                  percentage={item.base_stat}
+                />
+              ))}
+            </div>
 
             <SearchLink name={pokemon.name} />
           </Card>
