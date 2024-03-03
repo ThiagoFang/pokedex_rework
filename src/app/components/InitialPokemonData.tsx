@@ -15,7 +15,7 @@ export default async function InitialPokemonData() {
   if (pokemon && species)
     return (
       <div className="flex flex-col sm:flex-row max-sm:gap-8 align-items-center justify-center mx-auto w-max" >
-        <img className="animate-fade-up w-40 max-sm:mx-auto sm:h-80 animate-once my-auto animate-duration-1000 animate-ease-in-out relative z-10 sm:-right-2" alt="pokemon picture" src={getImage(pokemon)} />
+        <img className="animate-fade-up max-sm:w-40 max-sm:mx-auto sm:h-80 animate-once my-auto animate-duration-1000 animate-ease-in-out relative z-10 sm:-right-2" alt="pokemon picture" src={getImage(pokemon)} />
         <div className="space-y-8 max-w-xs">
           <Card className="flex gap-2 items-center animate-fade-up animate-once animate-duration-1000 animate-ease-in-out animate-delay-100">
             <Metric className="capitalize">{pokemon.name}</Metric>

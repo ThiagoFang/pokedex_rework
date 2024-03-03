@@ -10,7 +10,7 @@ export async function PokemonGrid({ page }: Props) {
   const list = response ?? [];
 
   return (
-    <div className='grid grid-cols-4 gap-16'>
+    <div className='grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 lg:gap-16'>
       {list.map((pokemon, index) => (
         <PokemonCard name={pokemon.name} key={index} />
       ))}

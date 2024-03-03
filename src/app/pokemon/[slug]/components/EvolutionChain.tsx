@@ -26,7 +26,7 @@ export async function EvolutionChain({ url }: Props) {
   return (
     <div className='mt-8 grid gap-6 max-w-7xl mx-auto'>
       <Title>Pokemon Evolutions</Title>
-      <div className='grid grid-cols-2 gap-8'>
+      <div className='grid md:grid-cols-2 gap-8'>
         {flatChain(evolutions.chain).map((evolution, index) => (
           <EvolutionBox name={evolution.name} key={index} />
         ))}
