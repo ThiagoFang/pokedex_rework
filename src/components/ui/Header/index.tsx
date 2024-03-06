@@ -31,7 +31,7 @@ export default function Header() {
         </li>
 
         <li>
-          <Link href="" className="flex items-center gap-1 py-2 px-4">
+          <Link href="/pokemon/play" className="flex items-center gap-1 py-2 px-4">
             <Lucide.Gamepad2 className="stroke-gray-700 size-6 sm:size-4.5 dark:stroke-white" />
             <Title className="max-sm:hidden">Play</Title>
           </Link>

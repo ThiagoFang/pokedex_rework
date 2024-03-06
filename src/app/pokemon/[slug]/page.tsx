@@ -6,6 +6,7 @@ import { EvolutionChain } from "./components/EvolutionChain";
 import { getImage } from "@/utils/getImage";
 import { TypeChips } from "@/components/TypeChips";
 import { CancelLoading } from "@/components/ui/CancelLoading";
+import Image from "next/image";
 
 interface Props {
 	params: {
@@ -16,6 +17,17 @@ interface Props {
 export default async function PokemonsPage({ params }: Props) {
 	const pokemon = await getPokemon(params.slug);
 	const species = await getSpecies(params.slug);
+
+	if (!pokemon || !species) {
+		return (
+			<div className="p-4 flex flex-col text-center py-16 items-center justify-center">
+				<CancelLoading />
+				<Image src="/team_rocket.png" alt="" className="animate-fade-up animate-once animate-duration-700 animate-ease-in-out" width={200} height={250} />
+				<Title className="my-1 animate-fade-up animate-once animate-duration-700 animate-ease-in-out animate-delay-100">Looks like Team Rocket got here ahead of us</Title>
+				<Text className="animate-fade-up animate-once animate-duration-700 animate-ease-in-out animate-delay-200">No Pokémon named <span className="font-medium">{params.slug}</span> was located</Text>
+			</div>
+		)
+	}
 
 	if (pokemon && species)
 		return (
