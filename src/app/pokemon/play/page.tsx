@@ -1,12 +1,8 @@
-"use client";
-
 import { Suspense } from "react";
 import { GameArea } from "./components/GameArea";
 import { Title, Text } from "@/components";
-import { useGameStore } from "@/store/game";
 
 function Play() {
-  const { round } = useGameStore();
 
   return (
     <div className="max-w-7xl mt-6 sm:mt-16 mx-auto">

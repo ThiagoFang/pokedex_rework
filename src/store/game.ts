@@ -7,6 +7,10 @@ type GameStore = {
   addRound: () => void;
   showPokemon: boolean;
   setShowPokemon: (showPokemon: boolean) => void;
+
+  status?: "won" | "lost";
+  setStatus: (status: "won" | "lost") => void;
+  clearStatus: () => void;
 };
 
 export const useGameStore = create<GameStore>((set) => ({
@@ -16,4 +20,8 @@ export const useGameStore = create<GameStore>((set) => ({
   addRound: () => set((state) => ({ round: state.round + 1 })),
   showPokemon: false,
   setShowPokemon: (showPokemon: boolean) => set({ showPokemon }),
+
+  status: undefined,
+  setStatus: (status: "won" | "lost") => set({ status: status }),
+  clearStatus: () => set({ status: undefined }),
 }));

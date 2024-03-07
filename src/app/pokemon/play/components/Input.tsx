@@ -1,6 +1,5 @@
 "use client"
 
-import { Card } from "@/components";
 import { cardStyles } from "@/components/Card";
 import { PokeballButton } from "@/components/PokeballButton";
 import { useGameStore } from "@/store/game";
@@ -12,36 +11,48 @@ interface Props {
 
 export const Input = ({ pokemon }: Props) => {
   const [value, setValue] = useState("");
-  const { addScore, addRound, setShowPokemon } = useGameStore();
+  const [loading, setLoading] = useState(false);
+
+  const { addScore, addRound, setShowPokemon, setStatus, clearStatus } = useGameStore();
+
+  const resetGame = () => {
+    setTimeout(() => {
+      addRound();
+      setShowPokemon(false);
+      setValue("");
+      clearStatus();
+      setLoading(false);
+    }, 5000);
+  }
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!value.length) return;
+    if (!value.length || loading) return;
+
+    setLoading(true);
+    setShowPokemon(true);
 
     if (value === pokemon) {
-      setShowPokemon(true);
+      setStatus("won");
       addScore();
 
-      setTimeout(() => {
-        addRound();
-        setShowPokemon(false);
-        setValue("");
-      }, 5000);
-    } else {
-      addRound();
-      setValue("");
+      resetGame();
     }
+
+    setStatus("lost");
+    resetGame();
   }
 
   return (
     <form onSubmit={handleSubmit} className={cardStyles({ className: "flex gap-2 py-2 items-center w-max mx-auto" })}>
       <input
-        className="mx-auto w-64 text-gray-700 dark:text-gray-200 p-4 border-none bg-transparent focus:outline-none text-xl sm:text-2xl font-bold"
+        className="mx-auto w-64 disabled:opacity-50 text-gray-700 dark:text-gray-200 p-4 border-none bg-transparent focus:outline-none text-xl sm:text-2xl font-bold"
         placeholder="Pokemon Name..."
         value={value}
+        disabled={loading}
         onChange={(e) => setValue(e.target.value)}
       />
-      <PokeballButton type="submit" />
+      <PokeballButton type="submit" disabled={loading} />
     </form>
   )
 }

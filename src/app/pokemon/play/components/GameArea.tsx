@@ -7,6 +7,7 @@ import { getRandomPokemon } from '@/utils/fetch/getPokemon'
 import { useEffect, useState } from 'react';
 import { Pokemon } from '@/types/pokemon';
 import { useGameStore } from '@/store/game'
+import { StatusWarning } from './StatusWarning'
 
 export function GameArea() {
   const [pokemon, setShowPokemon] = useState<Pokemon | undefined>();
@@ -27,6 +28,7 @@ export function GameArea() {
   return (
     <div>
       <Score />
+      <StatusWarning name={pokemon.name} />
       <PokemonImage pokemon={pokemon} />
       <Input pokemon={pokemon.name} />
     </div>
