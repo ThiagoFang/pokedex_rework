@@ -46,7 +46,7 @@ export const Input = ({ pokemon }: Props) => {
   return (
     <form onSubmit={handleSubmit} className={cardStyles({ className: "flex gap-2 py-2 items-center w-max mx-auto" })}>
       <input
-        className="mx-auto w-64 disabled:opacity-50 text-gray-700 dark:text-gray-200 p-4 border-none bg-transparent focus:outline-none text-xl sm:text-2xl font-bold"
+        className="mx-auto w-44 sm:w-64 disabled:opacity-50 text-gray-700 dark:text-gray-200 p-2 sm:p-4 border-none bg-transparent focus:outline-none text-lg sm:text-2xl font-bold"
         placeholder="Pokemon Name..."
         value={value}
         disabled={loading}
